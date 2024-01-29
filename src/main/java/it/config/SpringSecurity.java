@@ -14,8 +14,8 @@ import org.springframework.security.web.SecurityFilterChain;
 import java.util.Arrays;
 import java.util.List;
 
-@EnableWebSecurity
 @Configuration
+@EnableWebSecurity
 public class SpringSecurity {
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -26,7 +26,7 @@ public class SpringSecurity {
     public InMemoryUserDetailsManager memoryUserDetailsManager() {
         List<UserDetails> list = Arrays.asList(
                 User.builder().username("admin1").password(passwordEncoder().encode("123")).roles("ADMIN").build(),
-                User.builder().username("user1").password(passwordEncoder().encode("123")).roles("USER").build()
+                User.builder().username("email@gmail.com").password(passwordEncoder().encode("123")).roles("USER").build()
         );
         return new InMemoryUserDetailsManager(list);
     }
